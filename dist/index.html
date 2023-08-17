@@ -7,52 +7,66 @@
     <title>Todo List</title>
 </head>
 <body>
-    <div class="header">
-        <nav class="left">
-            <ul>
-                <li><a href="" class="menu"><img src="../src/assets/icons/menu.svg" alt=""></a></li>
-                <li><a href="" class="home"><img src="../src/assets/icons/home.svg" alt=""></a></li>
-                <li><input type="text" name="search" id="search" class="search" placeholder="Search" autocomplete="off"></li>
-            </ul>
-        </nav>
-        <nav class="right">
-            <ul>
-                <li><a href="" class="add"><img src="../src/assets/icons/plus.svg" alt=""></a></li>
-                <li><a href="" class="help"><img src="../src/assets/icons/help.svg" alt=""></a></li>
-                <li><a href="" class="alerts"><img src="../src/assets/icons/alerts.svg" alt=""></a></li>
-                <li><a href="" class="user"><img src="../src/assets/icons/user.svg" alt=""></a></li>
-            </ul>
-        </nav>
-    </div>
-    <div class="container">
-        <div class="sidebar">
-            <nav class="options">
+    <div class="main-container">
+        <div class="header">
+            <nav class="left">
                 <ul>
-                    <li><a href="">
-                        <img src="../src/assets/icons/check.svg" alt="">
-                        <span>All</span>
-                    </a></li>
-                    <li><a href="">
-                        <img src="../src/assets/icons/date.svg" alt="">
-                        <span>Today</span>
-                    </a></li>
-                    <li><a href="">
-                        <img src="../src/assets/icons/calendar.svg" alt="">
-                        <span>Week</span>
-                    </a></li>
+                    <li><button class="menu"><img src="../src/assets/icons/menu.svg" alt=""></button></li>
+                    <li><button class="home"><img src="../src/assets/icons/home.svg" alt=""></button></li>
+                    <li><input type="text" name="search" id="search" class="search" placeholder="Search" autocomplete="off"></li>
                 </ul>
             </nav>
-            <h4>Projects</h4>
-            <nav class="projects" id="projects">
-                <ul id="projects-ul">
-                    <li><a href="">
-                        <img src="../src/assets/icons/project.svg" alt="">
-                        <span>Project</span>
-                    </a></li>
+            <nav class="right">
+                <ul>
+                    <li><button class="add" id="add"><img src="../src/assets/icons/plus.svg" alt=""></button></li>
+                    <li><button class="help"><img src="../src/assets/icons/help.svg" alt=""></button></li>
+                    <li><button class="alerts"><img src="../src/assets/icons/alerts.svg" alt=""></button></li>
+                    <li><button class="user"><img src="../src/assets/icons/user.svg" alt=""></button></li>
                 </ul>
             </nav>
         </div>
-        <div class="content">Content</div>
+        <div class="container">
+            <div class="sidebar">
+                <nav class="options">
+                    <ul>
+                        <li><button>
+                            <img src="../src/assets/icons/check.svg" alt="">
+                            <span>All</span>
+                        </button></li>
+                        <li><button>
+                            <img src="../src/assets/icons/date.svg" alt="">
+                            <span>Today</span>
+                        </button></li>
+                        <li><button>
+                            <img src="../src/assets/icons/calendar.svg" alt="">
+                            <span>Week</span>
+                        </button></li>
+                    </ul>
+                </nav>
+                <h4>Projects</h4>
+                <nav class="projects" id="projects">
+                    <ul id="projects-ul">
+                        <li><button>
+                            <img src="../src/assets/icons/project.svg" alt="">
+                            <span>Project</span>
+                        </button></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="content">Content</div>
+        </div>
     </div>
+    <dialog id="dialog">
+        <div class="dialog-header">Create a new ...</div>
+        <div class="dialog-container">
+            <div class="dialog-sidebar">
+                <ul>
+                    <li>To Do</li>
+                    <li>Project</li>
+                </ul>
+            </div>
+            <div class="dialog-content" id="dialog-content">Content</div>
+        </div>
+    </dialog>
 </body>
 </html>

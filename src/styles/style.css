@@ -11,11 +11,15 @@
 
 body {
     font-family: Poppins-regular, sans-serif;
+}   
+
+.main-container {
     width: 100vw;
     height: 100vh;
     display: grid;
     grid-template: max-content 1fr / 1fr;
-}   
+    /*filter: blur(8px);*/
+}
 
 .header {
     display: flex;
@@ -36,6 +40,20 @@ img {
 
 ul {
     list-style-type: none;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    border: none;
+    outline: none;
 }
 
 .header > nav > ul {
@@ -102,12 +120,16 @@ a {
     gap: 0.8rem;
 }
 
-.options > ul > li > a,
-.projects > ul > li > a {
+.options > ul > li > button,
+.projects > ul > li > button {
     display: grid;
     grid-template: 1fr / max-content 1fr;
     gap: 0.7rem;
     font-size: 1.2rem;
+}
+
+span {
+    align-self: center;
 }
 
 h4 {
@@ -120,4 +142,54 @@ h4 {
 
 .content {
     padding: 0 10vw;
+}
+
+dialog[open] {
+    width: 50vw;
+    height: 50vh;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    margin-left: -25vw;
+    margin-top: -25vh;
+    display: grid;
+    grid-template: max-content 1fr / 1fr;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.dialog-header {
+    background-color: rgb(219, 107, 2);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding: 0.5rem 0;
+}
+
+.dialog-container {
+    display: grid;
+    grid-template: 1fr / max-content 1fr;
+}
+
+.dialog-sidebar {
+    padding: 1rem;
+    padding-right: 5rem;
+    font-size: 1.3rem;
+    border-right: solid rgb(156, 150, 150) 1px;
+}
+
+.dialog-sidebar > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.dialog-content {
+    padding: 1rem;
+    font-size: 1.2rem;
 }
