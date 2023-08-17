@@ -1,0 +1,84 @@
+@font-face {
+  font-family: Poppins-regular;
+  src: url(../assets/fonts/poppins/Poppins-Regular.ttf);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Poppins-regular, sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template: max-content 1fr / 1fr;
+}
+
+input {
+
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(18, 173, 18);
+    padding: 0.5rem 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 1.8rem;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user > img {
+    width: 2.2rem;
+}
+
+.search {
+    background-color: rgb(114, 214, 114);
+    border: none;
+    border-radius: 5px;
+    width: 10vw;
+    height: 1.6rem;
+    font-family: inherit;
+    padding-left: 0.5rem;
+}
+
+.search:focus {
+    border: none;
+    outline: none;
+}
+
+.container {
+    display: grid;
+    grid-template: 1fr / max-content 1fr;
+}
