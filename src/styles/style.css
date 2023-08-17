@@ -21,7 +21,7 @@ body {
     display: flex;
     justify-content: space-between;
     background-color: rgb(219, 107, 2);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
 }
 
 nav {
@@ -68,7 +68,7 @@ a {
     background-color: rgb(235, 175, 120);
     border: none;
     border-radius: 5px;
-    width: 10vw;
+    width: 200px;
     height: 1.6rem;
     font-family: inherit;
     padding-left: 0.5rem;
