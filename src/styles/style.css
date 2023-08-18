@@ -171,6 +171,12 @@ dialog[open] {
     padding: 0.5rem 0;
 }
 
+.dialog-header > button {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.5rem;
+}
+
 .dialog-container {
     display: grid;
     grid-template: 1fr / max-content 1fr;

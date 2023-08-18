@@ -7,7 +7,7 @@
     <title>Todo List</title>
 </head>
 <body>
-    <div class="main-container">
+    <div class="main-container" id="main-container">
         <div class="header">
             <nav class="left">
                 <ul>
@@ -57,7 +57,10 @@
         </div>
     </div>
     <dialog id="dialog">
-        <div class="dialog-header">Create a new ...</div>
+        <div class="dialog-header">
+            <span>Create a new ...</span>
+            <button id="dialog-close"><img src="../src/assets/icons/cross.svg" alt=""></button>
+        </div>
         <div class="dialog-container">
             <div class="dialog-sidebar">
                 <ul>
