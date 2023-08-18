@@ -1,0 +1,127 @@
+@font-face {
+    font-family: Poppins-light;
+    src: url(../assets/fonts/poppins/Poppins-Light.ttf);
+  }
+
+.todo {
+    width: 60vw;
+    display: flex;
+    align-self: center;
+    gap: 1.5rem;
+    padding: 0.5rem 2rem;
+    transition: all .2s;
+    font-family: 'Poppins-light';
+}
+
+.todo:hover {
+    transform: scale(1.003);
+    box-shadow: 3px 3px 5px 2px rgba(0, 0, 0, 0.2);
+    transition: all .2s ease-out;
+}
+
+.todo > div {
+    display: flex;
+    align-items: center;
+}
+
+.todo-check {
+    appearance: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: solid green 2px;
+    border-radius: 25%;
+    align-self: center;
+}
+
+.todo-check:hover {
+    cursor: pointer;
+}
+
+.todo-check:checked {
+    background-color: green;
+    background-image: url(../assets/icons/check-mark.svg);
+    background-size: 1rem;
+}
+
+.todo-title {
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+.todo-details {
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border: solid green 1px;
+    color: green;
+    padding: 0 1rem;
+    border-radius: 5px;
+}
+
+.todo-details:hover {
+    background-color: green;
+    color: white;
+}
+
+.todo-details:focus {
+    border: solid green 1px;
+}
+
+.todo-date {
+    font-weight: 600;
+    font-size: 0.7rem;
+}
+
+.done {
+    color: grey;
+    filter: grayscale(100%);
+}
+
+.done > .todo-title{
+    text-decoration-line: line-through;
+}
+
+.todo-dialog {
+    width: 30vw;
+    height: 26vh;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    margin-left: -15vw;
+    margin-top: -13vh;
+    display: grid;
+    grid-template: max-content max-content max-content / 1fr;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.todo-dialog > button > img {
+    width: 1.3rem;
+}
+
+.todo-dialog > button {
+    width: fit-content;
+    justify-self: flex-end;
+}
+
+.todo-dialog-title {
+    font-size: 2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.todo-dialog-container {
+    display: grid;
+    grid-template: repeat(4, max-content) / max-content max-content;
+}
+
+.todo-dialog-container > div {
+    margin-right: 1rem;
+}
+
+.bold {
+    font-weight: 600;
+}
