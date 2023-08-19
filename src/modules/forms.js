@@ -114,7 +114,38 @@ function todoForm() {
 }
 
 function projectForm() {
+    let mainContainer = document.getElementById("main-container");
+    let dialog = document.getElementById("dialog");
+    let form = document.createElement("form");
+    form.classList.add("project-form");
+    form.autocomplete = "off";
 
+    let formTitle = document.createElement("input");
+    formTitle.type = "text";
+    formTitle.name = "project-form-title";
+    formTitle.id = "project-form-title";
+    formTitle.classList.add("project-form-title");
+    formTitle.placeholder = "Title: House Renovation"
+    formTitle.required = true;
+    form.appendChild(formTitle);
+
+    let submitButton = document.createElement("input");
+    submitButton.type = "submit";
+    submitButton.classList.add("submit-button");
+    submitButton.value = "CREATE PROJECT";
+    form.appendChild(submitButton);
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        //content.appendChild(todo(formTitle.value, formDescription.value, formDate.value, document.querySelector('input[name="todo-form-priority"]:checked').value));
+        while (form.firstChild) {
+            form.removeChild(form.firstChild);
+        }
+        dialog.close();
+        mainContainer.style.filter = "blur(0px)";
+        form.parentNode.removeChild(form);
+    })
+
+    return form;
 }
 
 export { todoForm, projectForm }

@@ -9,7 +9,25 @@ import { todoForm, projectForm } from './modules/forms.js';
 const mainContainer = document.getElementById("main-container");
 const addButton = document.getElementById("add");
 let dialog = document.getElementById("dialog");
+const dialogContent = document.getElementById("dialog-content");
+const todoFormButton = document.getElementById("todo-form-button");
+const projectFormButton = document.getElementById("project-form-button");
 const closeButton = document.getElementById("dialog-close");
+
+todoFormButton.addEventListener('click', () => {
+    while (dialogContent.firstChild) {
+        dialogContent.removeChild(dialogContent.firstChild);
+    }
+    dialogContent.appendChild(todoForm());
+});
+projectFormButton.addEventListener('click', () => {
+    while (dialogContent.firstChild) {
+        dialogContent.removeChild(dialogContent.firstChild);
+    }
+    dialogContent.appendChild(projectForm());
+});
+
+
 addButton.addEventListener('click', () => {
     dialog.showModal();
     mainContainer.style.filter = "blur(3px)";
@@ -17,17 +35,16 @@ addButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
     dialog.close();
     mainContainer.style.filter = "blur(0px)";
+    while (dialogContent.firstChild) {
+        dialogContent.removeChild(dialogContent.firstChild);
+    }
 });
 dialog.addEventListener('cancel', () => {
     mainContainer.style.filter = "blur(0px)";
+    while (dialogContent.firstChild) {
+        dialogContent.removeChild(dialogContent.firstChild);
+    }
 });
-
-const dialogContent = document.getElementById("dialog-content");
-const todoFormButton = document.getElementById("todo-form-button");
-todoFormButton.addEventListener('click', () => {
-    dialogContent.appendChild(todoForm());
-});
-
 //
 
 

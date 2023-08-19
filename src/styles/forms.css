@@ -4,13 +4,15 @@
     gap: 1rem;
 }
 
-.todo-form-title {
+.todo-form-title,
+.project-form-title {
     font-family: inherit;
     font-size: 1.5rem;
     border: none;
 }
 
-.todo-form-title:focus {
+.todo-form-title:focus,
+.project-form-title:focus {
     border: none;
     outline: none;
 }
@@ -134,4 +136,11 @@
 .submit-button:hover {
     background-color: #3ba395;
     color: white;
+}
+
+.project-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 1rem;
 }
