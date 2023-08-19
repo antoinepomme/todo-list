@@ -28,7 +28,7 @@
     appearance: none;
     width: 1.2rem;
     height: 1.2rem;
-    border: solid green 2px;
+    border: solid #3ba395 2px;
     border-radius: 25%;
     align-self: center;
 }
@@ -38,7 +38,7 @@
 }
 
 .todo-check:checked {
-    background-color: green;
+    background-color: #3ba395;
     background-image: url(../assets/icons/check-mark.svg);
     background-size: 1rem;
 }
@@ -52,19 +52,19 @@
     font-family: inherit;
     font-size: 0.8rem;
     font-weight: 600;
-    border: solid green 1px;
-    color: green;
+    border: solid #3ba395 1px;
+    color: #3ba395;
     padding: 0 1rem;
     border-radius: 5px;
 }
 
 .todo-details:hover {
-    background-color: green;
+    background-color: #3ba395;
     color: white;
 }
 
 .todo-details:focus {
-    border: solid green 1px;
+    border: solid #3ba395 1px;
 }
 
 .todo-date {

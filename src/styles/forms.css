@@ -1,0 +1,137 @@
+.todo-form {
+    display: grid;
+    grid-template: max-content 1fr max-content max-content / 1fr;
+    gap: 1rem;
+}
+
+.todo-form-title {
+    font-family: inherit;
+    font-size: 1.5rem;
+    border: none;
+}
+
+.todo-form-title:focus {
+    border: none;
+    outline: none;
+}
+
+.todo-form-description {
+    resize: none;
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+}
+
+.todo-form-description:focus {
+    border: none;
+    outline: none;
+}
+
+.form-date-container {
+    display: grid;
+    grid-template: max-content max-content / max-content max-content 1fr;
+    gap: 1rem;
+}
+
+.todo-form-date {
+    font-family: inherit;
+    padding: 0.3rem 0.5rem;
+    border: solid #3ba395 1px;
+    border-radius: 5px;
+    color: #3ba395;
+    font-weight: 600;
+}
+
+.todo-form-date:focus {
+    outline: none;
+}
+
+.todo-form-date + label {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+}
+
+.radio-container {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    display: flex;
+    gap: 0.8rem;
+}
+
+.todo-form-priority {
+    width: 3rem;
+}
+
+.radio > input[type="radio"] {
+    position: relative;
+    opacity: 0;
+    left: 1.5rem;
+    height: 1px;
+    width: 1px;
+    cursor: pointer;
+}
+
+
+.radio > label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+}
+
+.low {
+    border: solid green 1px;
+    border-radius: 5px;
+    color: green;
+}
+
+.medium {
+    border: solid orange 1px;
+    border-radius: 5px;
+    color: orange;
+}
+
+.high {
+    border: solid red 1px;
+    border-radius: 5px;
+    color: red;
+}
+
+.low:hover,
+.radio > input:checked + .low,
+.radio > input[type="radio"]:hover + .low {
+    background-color: green;
+    color: white;
+}
+
+.medium:hover,
+.radio > input:checked + .medium,
+.radio > input[type="radio"]:hover + .medium {
+    background-color: orange;
+    color: white;
+}
+
+.high:hover,
+.radio > input:checked + .high,
+.radio > input[type="radio"]:hover + .high {
+    background-color: red;
+    color: white;
+}
+
+.submit-button {    
+    padding: 0.3rem 0.5rem;
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+    justify-self: end;
+    width: fit-content;
+    border: solid #3ba395 1px;
+    border-radius: 5px;
+    color: #3ba395;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #3ba395;
+    color: white;
+}

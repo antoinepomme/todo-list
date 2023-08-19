@@ -201,4 +201,5 @@ h4 {
 .dialog-content {
     padding: 1rem;
     font-size: 1.2rem;
+    display: grid;
 }

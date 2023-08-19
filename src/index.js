@@ -1,12 +1,14 @@
 import './styles/style.css';
 import './styles/todo.css';
+import './styles/forms.css';
 import { format, compareAsc } from 'date-fns';
 import todo from './modules/todo.js';
+import { todoForm, projectForm } from './modules/forms.js';
 
 //main dialog
 const mainContainer = document.getElementById("main-container");
 const addButton = document.getElementById("add");
-const dialog = document.getElementById("dialog");
+let dialog = document.getElementById("dialog");
 const closeButton = document.getElementById("dialog-close");
 addButton.addEventListener('click', () => {
     dialog.showModal();
@@ -20,6 +22,13 @@ dialog.addEventListener('cancel', () => {
     mainContainer.style.filter = "blur(0px)";
 });
 
+const dialogContent = document.getElementById("dialog-content");
+const todoFormButton = document.getElementById("todo-form-button");
+todoFormButton.addEventListener('click', () => {
+    dialogContent.appendChild(todoForm());
+});
+
+//
 
 
 //examples
