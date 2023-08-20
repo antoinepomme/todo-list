@@ -81,6 +81,28 @@
     text-decoration-line: line-through;
 }
 
+.todo-dialog-edit {
+    width: 50vw;
+    height: 35vh;
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    margin-left: -25vw;
+    margin-top: -17.5vh;
+    display: grid;
+    grid-template: max-content max-content max-content / 1fr;
+    box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.6);
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.todo-dialog-edit > button {
+    width: fit-content;
+    justify-self: end;
+}
+
 .todo-dialog {
     width: 30vw;
     height: 26vh;

@@ -2,15 +2,15 @@ import trash from '../assets/icons/trash.svg';
 import edit from '../assets/icons/edit.svg';
 import cross from '../assets/icons/cross-black.svg';
 import { todoArr } from '../index.js';
+import { todoForm, projectForm } from './forms.js';
 
 const mainContainerForTodo = document.getElementById("main-container");
 let content = document.getElementById("content");
 
-function todo(title, description, dueDate, priority, project) {
+function todo(title, description, dueDate, priority, project, oldId) {
     let todoItem = document.createElement("div");
     todoItem.classList.add("todo");
-    todoItem.id = todoArr.length;
-
+    todoItem.id = (oldId) ? oldId : todoArr.length;
     todoItem.setAttribute("data-title", title);
     if (project) {
         todoItem.setAttribute("data-project", project);
@@ -20,6 +20,50 @@ function todo(title, description, dueDate, priority, project) {
     todoItem.setAttribute("data-priority", priority);
     todoItem.setAttribute("data-date", dueDate);
     todoItem.setAttribute("data-description", description);
+
+    function editTodo(title, description, dueDate, priority, project, i) {
+        let todoDialog = document.createElement("dialog");
+        todoDialog.classList.add("todo-dialog-edit");
+
+        let closeDialog = document.createElement("button");
+        let crossIcon = new Image();
+        crossIcon.src = cross;
+        closeDialog.appendChild(crossIcon);
+        todoDialog.appendChild(closeDialog);
+
+        let form = todoForm(title, description, dueDate, priority, project, i)
+        todoDialog.appendChild(form);
+        form.addEventListener('submit', () => {
+            while (todoDialog.firstChild) {
+                todoDialog.removeChild(todoDialog.firstChild);
+            }
+            todoDialog.close();
+            document.body.removeChild(todoDialog);
+            mainContainerForTodo.style.filter = "blur(0px)";
+        })
+
+        document.body.appendChild(todoDialog);
+        todoDialog.addEventListener('cancel', () => {
+            while (todoDialog.firstChild) {
+                todoDialog.removeChild(todoDialog.firstChild);
+            }
+            todoDialog.close();
+            document.body.removeChild(todoDialog);
+            mainContainerForTodo.style.filter = "blur(0px)";
+        });
+
+        closeDialog.addEventListener('click', () => {
+            while (todoDialog.firstChild) {
+                todoDialog.removeChild(todoDialog.firstChild);
+            }
+            todoDialog.close();
+            document.body.removeChild(todoDialog);
+            mainContainerForTodo.style.filter = "blur(0px)";
+        });
+
+        todoDialog.showModal();
+        mainContainerForTodo.style.filter = "blur(3px)";
+    }
 
     function showDetails(element) {
         let todoDialog = document.createElement("dialog");
@@ -147,6 +191,9 @@ function todo(title, description, dueDate, priority, project) {
     editIcon.src = edit;
     todoEditButton.appendChild(editIcon);
     todoItem.appendChild(todoEditButton);
+    todoEditButton.addEventListener('click', () => {
+        editTodo(todoTitle.textContent, todoItem.getAttribute("data-description"), todoItem.getAttribute("data-date"), "", todoItem.getAttribute("data-project"), todoItem.id);
+    });
 
     let todoDeleteButton = document.createElement("button");
     let editTrash = new Image();
@@ -191,4 +238,9 @@ function todoAdd (title, description, dueDate, priority, project) {
     todoDisplay();
 }
 
-export { todo, todoDisplay, todoAdd };
+function todoEdit (title, description, dueDate, priority, project, i) {
+    todoArr[i] = todo(title, description, dueDate, priority, project, i);
+    todoDisplay();
+}
+
+export { todo, todoDisplay, todoAdd, todoEdit };
