@@ -1,12 +1,15 @@
 import trash from '../assets/icons/trash.svg';
 import edit from '../assets/icons/edit.svg';
 import cross from '../assets/icons/cross-black.svg';
+import { todoArr } from '../index.js';
 
 const mainContainerForTodo = document.getElementById("main-container");
+let content = document.getElementById("content");
 
-export default function todo(title, description, dueDate, priority, project) {
+function todo(title, description, dueDate, priority, project) {
     let todoItem = document.createElement("div");
     todoItem.classList.add("todo");
+    todoItem.id = todoArr.length;
 
     todoItem.setAttribute("data-title", title);
     if (project) {
@@ -151,11 +154,41 @@ export default function todo(title, description, dueDate, priority, project) {
     todoDeleteButton.appendChild(editTrash);
     todoItem.appendChild(todoDeleteButton);
     todoDeleteButton.addEventListener('click', () => {
+        let i = todoItem.id;
         while (todoItem.firstChild) {
             todoItem.removeChild(todoItem.firstChild);
         }
         todoItem.parentNode.removeChild(todoItem);
+        todoArr.splice(i, 1);
+        while (todoArr[i]) {
+            console.log(i);
+            (todoArr[i]).id -= 1;
+            i++;
+        }
     });
 
     return todoItem;
 }
+
+function todoDisplay (project) {
+    while (content.firstChild) {
+        content.removeChild(content.firstChild);
+    }
+    if (project) {
+        for (let i of todoArr) {
+            if (i.getAttribute("data-project") === project)
+            content.appendChild(i);
+        }
+    } else {
+        for (let i of todoArr) {
+            content.appendChild(i);
+        }
+    }
+}
+
+function todoAdd (title, description, dueDate, priority, project) {
+    todoArr.push(todo(title, description, dueDate, priority, project));
+    todoDisplay();
+}
+
+export { todo, todoDisplay, todoAdd };

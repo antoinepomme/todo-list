@@ -31,11 +31,12 @@
 
 .form-date-container {
     display: grid;
-    grid-template: max-content max-content / max-content max-content 1fr;
+    grid-template: max-content max-content max-content / max-content max-content 1fr;
     gap: 1rem;
 }
 
-.todo-form-date {
+.todo-form-date,
+.todo-form-projects {
     font-family: inherit;
     padding: 0.3rem 0.5rem;
     border: solid #3ba395 1px;
@@ -44,7 +45,8 @@
     font-weight: 600;
 }
 
-.todo-form-date:focus {
+.todo-form-date:focus,
+.todo-form-projects:focus {
     outline: none;
 }
 
@@ -120,9 +122,19 @@
     color: white;
 }
 
+.form-projects-title {
+    grid-row: 3 / 4;
+    grid-column: 1 / 2;
+}
+
+.todo-form-projects {
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+}
+
 .submit-button {    
     padding: 0.3rem 0.5rem;
-    grid-row: 2 / 3;
+    grid-row: 3 / 4;
     grid-column: 3 / 4;
     justify-self: end;
     width: fit-content;

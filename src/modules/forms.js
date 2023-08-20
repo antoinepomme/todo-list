@@ -1,4 +1,6 @@
-import todo from './todo.js';
+import { todoAdd } from './todo.js';
+import { projectsDisplay, projectsAdd } from './projects.js';
+import { projectArr } from '../index.js';
 
 function todoForm() {
     let mainContainer = document.getElementById("main-container");
@@ -18,7 +20,6 @@ function todoForm() {
     form.appendChild(formTitle);
 
     let formDescription = document.createElement("textarea");
-    //formDescription.type = "text";
     formDescription.name = "todo-form-description";
     formDescription.id = "todo-form-description";
     formDescription.classList = "todo-form-description";
@@ -94,6 +95,26 @@ function todoForm() {
     formRadioContainer.appendChild(formPriorityHighContainer);
     formDateContainer.appendChild(formRadioContainer);
 
+    let formProjectsTitle = document.createElement("label");
+    formProjectsTitle.textContent = "Project :";
+    formProjectsTitle.classList.add("form-projects-title");
+    formDateContainer.appendChild(formProjectsTitle);
+    let formProjects = document.createElement("select")
+    formProjects.name = "todo-form-projects";
+    formProjects.id = "todo-form-projects";
+    formProjects.classList = "todo-form-projects";
+    let defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.textContent = "";
+    formProjects.appendChild(defaultOption);
+    for (let i of projectArr) {
+        let option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        formProjects.appendChild(option);
+    }
+    formDateContainer.appendChild(formProjects);
+
     let submitButton = document.createElement("input");
     submitButton.type = "submit";
     submitButton.classList.add("submit-button");
@@ -101,7 +122,7 @@ function todoForm() {
     formDateContainer.appendChild(submitButton);
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        content.appendChild(todo(formTitle.value, formDescription.value, formDate.value, document.querySelector('input[name="todo-form-priority"]:checked').value));
+        todoAdd(formTitle.value, formDescription.value, formDate.value, document.querySelector('input[name="todo-form-priority"]:checked').value, formProjects.value);
         while (form.firstChild) {
             form.removeChild(form.firstChild);
         }
@@ -136,7 +157,7 @@ function projectForm() {
     form.appendChild(submitButton);
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        //content.appendChild(todo(formTitle.value, formDescription.value, formDate.value, document.querySelector('input[name="todo-form-priority"]:checked').value));
+        projectsAdd(formTitle.value);
         while (form.firstChild) {
             form.removeChild(form.firstChild);
         }
